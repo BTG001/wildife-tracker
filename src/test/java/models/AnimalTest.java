@@ -24,4 +24,11 @@ public class AnimalTest {
         newAnimal.setId(3);
         assertEquals(3,newAnimal.getId());
     }
+
+    @Test
+    public void getName() {
+        Animal newAnimal = Animal.setUpNewAnimal();
+        assertEquals("Koala Bear",newAnimal.getAnimal_name());
+    }
+
 }
