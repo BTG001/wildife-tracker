@@ -46,5 +46,15 @@ public class AnimalTest {
 
     }
 
+    @Test
+    public void saveAnimal() {
+        Animal newAnimal = Animal.setUpNewAnimal();
+        EndangeredAnimal newDanger = new EndangeredAnimal("Gazelle","Healthy","young");
+        newDanger.saveAnimal(newDanger);
+        int initialId = newAnimal.getId();
+        newAnimal.saveAnimal(newAnimal);
+        assertNotEquals(initialId,newAnimal.getId());
+    }
+
 
 }
