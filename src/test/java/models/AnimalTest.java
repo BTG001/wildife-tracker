@@ -56,5 +56,14 @@ public class AnimalTest {
         assertNotEquals(initialId,newAnimal.getId());
     }
 
+    @Test
+    public void getAllAnimals() throws Exception{
+        Animal newAnimal = Animal.setUpNewAnimal();
+        newAnimal.saveAnimal(newAnimal);
+
+        assertEquals(newAnimal.getId(),Animal.getAllAnimals().size());
+    }
+
+
 
 }
