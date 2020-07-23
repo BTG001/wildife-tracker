@@ -64,6 +64,11 @@ public class AnimalTest {
         assertEquals(newAnimal.getId(),Animal.getAllAnimals().size());
     }
 
-
+    @Test
+    public void findAnimalById() {
+        Animal newAnimal = Animal.setUpNewAnimal();
+        newAnimal.saveAnimal(newAnimal);
+        assertEquals(newAnimal.getId(), newAnimal.findById(newAnimal.getId()).getId());
+    }
 
 }
