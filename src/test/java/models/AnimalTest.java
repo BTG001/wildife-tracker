@@ -10,4 +10,11 @@ public class AnimalTest {
         Animal newAnimal = Animal.setUpNewAnimal();
         assertEquals("young",newAnimal.getAnimal_age());
     }
+
+    @Test
+    public void setanimal_age() {
+        Animal newAnimal = Animal.setUpNewAnimal();
+        newAnimal.setAnimal_age("Young");
+        assertEquals("Young",newAnimal.getAnimal_age());
+    }
 }
