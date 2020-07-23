@@ -38,5 +38,13 @@ public class AnimalTest {
         assertEquals("Hyena",newAnimal.getAnimal_name());
     }
 
+    @Test
+    public void equals() {
+        Animal newAnimal = Animal.setUpNewAnimal();
+        newAnimal.saveAnimal(newAnimal);
+        assertNotEquals(newAnimal,newAnimal.findById(newAnimal.getId()));
+
+    }
+
 
 }
