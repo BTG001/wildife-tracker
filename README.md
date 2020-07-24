@@ -65,6 +65,8 @@ This app was made by Bruno Towett
 :phone: Incase of anything you can easily reach me through:
 * brunokipkorir2@gmail.com
 
+### License
+
 * MIT LICENCE [MIT](http://opensource.org/licenses/MIT)
 © 2020 BRUNO TOWETT
 
