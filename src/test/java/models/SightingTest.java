@@ -11,4 +11,10 @@ public class SightingTest {
         newSighting.getId();
         assertEquals(newSighting.getAnimal_id(),newSighting.getAnimal_id());
     }
+
+    @Test
+    public void getAnimal_location() {
+        Sighting newSighting = Sighting.setUpSighting();
+        assertEquals("Zone-A",newSighting.getAnimal_location());
+    }
 }
