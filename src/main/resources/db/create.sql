@@ -25,4 +25,4 @@ CREATE TABLE IF NOT EXISTS sightings(
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
-CREATE DATABASE wildlife_tracker_test;
+CREATE DATABASE wildlife_tracker_test WITH TEMPLATE wildlife_tracker;
