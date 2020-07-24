@@ -34,4 +34,11 @@ public class SightingTest {
         another.saveSightedAnimal(another);
         assertNotEquals(initialId,another.getId());
     }
+
+    @Test
+    public void findAnimalById() {
+        Sighting oldSighting = Sighting.setUpSighting();
+        oldSighting.saveSightedAnimal(oldSighting);
+        assertEquals(oldSighting, oldSighting.findAnimalById(oldSighting.getId()));
+    }
 }
