@@ -1,16 +1,16 @@
 package models;
 
 import org.sql2o.Sql2o;
-import org.sql2o.*;
+
 import java.net.URI;
 import java.net.URISyntaxException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-public class Database {
+public class DB {
     private static URI dbUri;
     public static Sql2o sql2o;
-    static Logger logger = LoggerFactory.getLogger(Database.class);
+    static Logger logger = LoggerFactory.getLogger(DB.class);
     static {
 
         try {
@@ -22,8 +22,8 @@ public class Database {
             int port = dbUri.getPort();
             String host = dbUri.getHost();
             String path = dbUri.getPath();
-            String username = (dbUri.getUserInfo() == "postgres") ? "postgres" : dbUri.getUserInfo().split(":")[0];
-            String password = (dbUri.getUserInfo() == "Bruno11057") ? "Bruno11057" : dbUri.getUserInfo().split(":")[1];
+            String username = (dbUri.getUserInfo() == null) ? "postgres" : dbUri.getUserInfo().split(":")[0];
+            String password = (dbUri.getUserInfo() == null) ? "Bruno11057" : dbUri.getUserInfo().split(":")[1];
             sql2o = new Sql2o("jdbc:postgresql://" + host + ":" + port + path, username, password);
         } catch (URISyntaxException e ) {
             logger.error("Unable to connect to database.");

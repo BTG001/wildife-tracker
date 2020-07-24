@@ -2,9 +2,7 @@ package models;
 
 import interfaces.AnimalInterface;
 import org.sql2o.Connection;
-import org.sql2o.Sql2o;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
@@ -86,7 +84,7 @@ public class Animal implements AnimalInterface{
 
     @Override
     public void saveAnimal(Animal animal) {
-        try (Connection conn = models.Database.sql2o.open()){
+        try (Connection conn = DB.sql2o.open()){
             String sql = "INSERT INTO  animals(animal_id, animal_name ) VALUES (:animal_id, :animal_name);";
             this.id = (int) conn.createQuery(sql, true)
                     .addParameter("animal_id", this.animal_id)
@@ -97,7 +95,7 @@ public class Animal implements AnimalInterface{
     }
 
     public static List<Animal> getAllAnimals() {
-        try(Connection conn = models.Database.sql2o.open()){
+        try(Connection conn = DB.sql2o.open()){
             String sql = "SELECT * FROM animals ORDER BY id DESC;";
             return conn.createQuery(sql)
                     .throwOnMappingFailure(false)
@@ -108,7 +106,7 @@ public class Animal implements AnimalInterface{
     @Override
     public Animal findById(int id) {
         String sql = "SELECT * FROM animals WHERE id=:id;";
-        try (Connection conn = Database.sql2o.open()){
+        try (Connection conn = DB.sql2o.open()){
             Animal animal = conn.createQuery(sql)
                     .addParameter("id",id)
                     .executeAndFetchFirst(Animal.class);

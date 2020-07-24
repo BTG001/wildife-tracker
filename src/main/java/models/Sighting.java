@@ -2,8 +2,6 @@ package models;
 
 import org.sql2o.Connection;
 
-import java.sql.ResultSet;
-import java.sql.Time;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
 import java.util.Objects;
@@ -75,7 +73,7 @@ public class Sighting {
     }
 
     public void saveSightedAnimal(Sighting sighting) {
-        try (Connection conn = Database.sql2o.open()){
+        try (Connection conn = DB.sql2o.open()){
             String sql = "INSERT INTO  sightings(animal_id, animal_location, ranger_name ) VALUES (:animal_id, :animal_location, :ranger_name);";
             this.id = (int) conn.createQuery(sql, true)
                     .addParameter("animal_id", this.animal_id)
@@ -87,7 +85,7 @@ public class Sighting {
     }
 
     public static List<Sighting> allSightings() {
-        try(Connection conn = Database.sql2o.open()){
+        try(Connection conn = DB.sql2o.open()){
 
             String sql = "SELECT * FROM sightings ORDER BY id DESC;";
             return conn.createQuery(sql)
@@ -97,7 +95,7 @@ public class Sighting {
     }
 
     public Sighting findAnimalById(int id) {
-        try (Connection conn = Database.sql2o.open()){
+        try (Connection conn = DB.sql2o.open()){
             String sql = "SELECT * FROM sightings WHERE id=:id;";
             Sighting sighting = conn.createQuery(sql)
                     .addParameter("id", id)
