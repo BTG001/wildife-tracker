@@ -7,6 +7,9 @@ group 'com.moringa.wildtracker'
 version '1.0-SNAPSHOT'
 
 sourceCompatibility = 1.8
+
+archivesBaseName = "wildtracker"
+applicationName = "wildtracker"
 mainClassName = "App"
 
 repositories {
@@ -22,3 +25,6 @@ dependencies {
     compile group: 'com.h2database',name: 'h2',version: '1.4.191'
     compile group: 'org.postgresql', name: 'postgresql', version: "9.4-1201-jdbc41"
 }
+
+defaultTasks = ['clean']
+task stage(dependsOn: ['clean', 'installDist'])
