@@ -6,6 +6,15 @@ import static org.junit.Assert.*;
 public class SightingTest {
 
     @Test
+    public void getId() {
+        Sighting newSighting = Sighting.setUpSighting();
+        int initialId = newSighting.getId();
+        newSighting.saveSightedAnimal(newSighting);
+        assertNotEquals(initialId,newSighting.getId());
+
+    }
+
+    @Test
     public void getAnimal_id() {
         Sighting newSighting = Sighting.setUpSighting();
         newSighting.getId();
