@@ -41,4 +41,11 @@ public class SightingTest {
         oldSighting.saveSightedAnimal(oldSighting);
         assertEquals(oldSighting, oldSighting.findAnimalById(oldSighting.getId()));
     }
+
+    @Test
+    public void allSightings() throws Exception{
+        Sighting oldSighting = Sighting.setUpSighting();
+        oldSighting.saveSightedAnimal(oldSighting);
+        assertTrue( Sighting.allSightings().contains(oldSighting));
+    }
 }
