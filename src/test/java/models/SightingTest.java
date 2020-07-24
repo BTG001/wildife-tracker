@@ -17,4 +17,11 @@ public class SightingTest {
         Sighting newSighting = Sighting.setUpSighting();
         assertEquals("Zone-A",newSighting.getAnimal_location());
     }
+
+    @Test
+    public void equals1() {
+        Sighting oldSighting = Sighting.setUpSighting();
+        oldSighting.saveSightedAnimal(oldSighting);
+        assertEquals(oldSighting, oldSighting.findAnimalById(oldSighting.getId()));
+    }
 }
